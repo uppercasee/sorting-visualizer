@@ -5,6 +5,8 @@ This is a Sorting Visualizer program that displays a graphical representation of
 - Selection sort
 - Insertion sort
 
+![Sorting gif](./Assets/Sorting.gif)
+
 ## Getting Started
 
 ### Prerequisites
