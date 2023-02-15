@@ -1,6 +1,7 @@
 import tkinter as tk
 import random
 
+
 class SortVisualizer:
     def __init__(self):
         self.root = tk.Tk()
@@ -60,7 +61,7 @@ class SortVisualizer:
         n = len(self.array)
         for i in range(n):
             min_idx = i
-            for j in range(i+1, n):
+            for j in range(i + 1, n):
                 if self.array[j] < self.array[min_idx]:
                     min_idx = j
             self.pivot_element = i
@@ -106,9 +107,9 @@ class SortVisualizer:
         pass
 
     def final_sort(self) -> None:
-        '''
+        """
         This is just for the aesthetic of the program. It just looks fun to watch.
-        '''
+        """
         for i in range(len(self.array)):
             self.pivot_element = i
             self.draw_array(self.array)
@@ -131,7 +132,7 @@ class SortVisualizer:
             self.insertion_sort()
             self.final_sort()
         self.sorting = False
-    
+
     # Define the handle_sort_button method
     def handle_sort_button(self) -> None:
         if not self.sorting:
@@ -143,17 +144,39 @@ class SortVisualizer:
         self.canvas = tk.Canvas(self.root, width=800, height=500, bg="white")
         self.canvas.grid(row=0, column=0, columnspan=4)
 
-        self.slider = tk.Scale(self.root, from_=3, to=500, resolution=1, orient=tk.HORIZONTAL, label="Number of elements", command=self.handle_slider, length=400)
+        self.slider = tk.Scale(
+            self.root,
+            from_=3,
+            to=500,
+            resolution=1,
+            orient=tk.HORIZONTAL,
+            label="Number of elements",
+            command=self.handle_slider,
+            length=400,
+        )
         self.slider.grid(row=1, column=0)
 
-        self.delay_slider = tk.Scale(self.root, from_=0, to=2.5, resolution=0.01, orient=tk.HORIZONTAL, label="Delay (s)", command=self.handle_delay_slider, length=200)
+        self.delay_slider = tk.Scale(
+            self.root,
+            from_=0,
+            to=2.5,
+            resolution=0.01,
+            orient=tk.HORIZONTAL,
+            label="Delay (s)",
+            command=self.handle_delay_slider,
+            length=200,
+        )
         self.delay_slider.grid(row=1, column=1)
 
         self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
-        self.dropdown = tk.OptionMenu(self.root, self.sort_algorithm, *self.sort_options)
+        self.dropdown = tk.OptionMenu(
+            self.root, self.sort_algorithm, *self.sort_options
+        )
         self.dropdown.grid(row=1, column=2)
 
-        self.sort_button = tk.Button(self.root, text="Sort", command=self.handle_sort_button)
+        self.sort_button = tk.Button(
+            self.root, text="Sort", command=self.handle_sort_button
+        )
         self.sort_button.grid(row=1, column=3)
 
         self.draw_array(self.array)
