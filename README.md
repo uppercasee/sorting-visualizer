@@ -21,7 +21,7 @@ Clone this repository:
 git clone https://github.com/uppercasee/sorting-visualizer.git
 ```
 
-### Install Tkinter:
+<!-- ### Install Tkinter:
 
 - For Ubuntu:
 
@@ -31,7 +31,7 @@ git clone https://github.com/uppercasee/sorting-visualizer.git
 ```
 
 - For Windows or Mac:
-    - Tkinter should be installed with Python by default.
+    - Tkinter should be installed with Python by default. -->
 
 ### Usage
 
