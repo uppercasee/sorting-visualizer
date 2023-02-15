@@ -17,7 +17,7 @@ This is a Sorting Visualizer program that displays a graphical representation of
 
 Clone this repository:
 ``` bash
-git clone https://github.com/yourusername/sorting-visualizer.git
+git clone https://github.com/uppercasee/sorting-visualizer.git
 ```
 
 ### Install Tkinter:
