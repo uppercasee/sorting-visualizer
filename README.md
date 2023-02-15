@@ -48,8 +48,8 @@ git clone https://github.com/uppercasee/sorting-visualizer.git
 2. Heap Sort
 3. Quick Sort
 4. and others (maybe)
-5. Add Error Handling
-6. Implement logging so debugging could be easier.
+<!-- 5. Add Error Handling -->
+<!-- 6. Implement logging so debugging could be easier. -->
 
 # Acknowledgments
 This program was heavily inspired by [15 Sorting Algorithms in 6 Minutes](https://youtu.be/kPRA0W1kECg) - [Timo Bingmann](https://www.youtube.com/@TimoBingmann)
