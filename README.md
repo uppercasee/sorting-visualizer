@@ -41,10 +41,11 @@ git clone https://github.com/yourusername/sorting-visualizer.git
 6. Select a sorting algorithm from the dropdown menu.
 7. Click on the "Sort" button to visualize the sorting algorithm.
 
-# Acknowledgments
-This program was heavily inspired by 
-
 # To-Do:
 1. Merge Sort
 2. Heap Sort
 3. Quick Sort
+4. and others (maybe)
+
+# Acknowledgments
+This program was heavily inspired by [15 Sorting Algorithms in 6 Minutes](https://youtu.be/kPRA0W1kECg) - [Timo Bingmann](https://www.youtube.com/@TimoBingmann)
