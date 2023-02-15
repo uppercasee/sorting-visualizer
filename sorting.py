@@ -122,14 +122,14 @@ class SortVisualizer:
 
     # Define the run_sorting method
     def run_sorting(self) -> None:
-        if self.sort_algorithm.get() == "Bubble Sort":
-            self.bubble_sort()
-            self.final_sort()
-        elif self.sort_algorithm.get() == "Selection Sort":
-            self.selection_sort()
-            self.final_sort()
-        elif self.sort_algorithm.get() == "Insertion Sort":
-            self.insertion_sort()
+        sorting_algorithms = {
+            "Bubble Sort": self.bubble_sort,
+            "Selection Sort": self.selection_sort,
+            "Insertion Sort": self.insertion_sort,
+        }
+        sort_function = sorting_algorithms.get(self.sort_algorithm.get())
+        if sort_function:
+            sort_function()
             self.final_sort()
         self.sorting = False
 
