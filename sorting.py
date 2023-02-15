@@ -143,7 +143,7 @@ class SortVisualizer:
     # Define the setup_gui method
     def setup_gui(self) -> None:
         self.canvas = tk.Canvas(self.root, width=800, height=500, bg="white")
-        self.canvas.grid(row=0, column=0, columnspan=4)
+        self.canvas.grid(row=1, column=0, columnspan=4)
 
         self.slider = tk.Scale(
             self.root,
@@ -156,7 +156,8 @@ class SortVisualizer:
             length=400,
         )
         self.slider.set(100)
-        self.slider.grid(row=1, column=0)
+        self.slider.config(bg="#EAA222", fg="black", highlightbackground="black")
+        self.slider.grid(row=0, column=0)
 
         self.delay_slider = tk.Scale(
             self.root,
@@ -169,19 +170,23 @@ class SortVisualizer:
             length=200,
         )
         self.delay_slider.set(0.01)
-        self.delay_slider.grid(row=1, column=1)
+        self.delay_slider.config(bg="#EAA222", fg="black", highlightbackground="black")
+        self.delay_slider.grid(row=0, column=1)
 
         self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
         self.dropdown = tk.OptionMenu(
             self.root, self.sort_algorithm, *self.sort_options
         )
+        self.dropdown.config(bg="yellow", fg="black", highlightbackground="black")
 
-        self.dropdown.grid(row=1, column=2)
+        self.dropdown.grid(row=0, column=2)
 
         self.sort_button = tk.Button(
             self.root, text="Sort", command=self.handle_sort_button
         )
-        self.sort_button.grid(row=1, column=3)
+        # change the color of the button so that it looks more appealing
+        self.sort_button.config(bg="green", fg="white", highlightbackground="black")
+        self.sort_button.grid(row=0, column=3)
 
         self.draw_array(self.array)
 
