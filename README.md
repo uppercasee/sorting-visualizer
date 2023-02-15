@@ -41,11 +41,6 @@ git clone https://github.com/yourusername/sorting-visualizer.git
 6. Select a sorting algorithm from the dropdown menu.
 7. Click on the "Sort" button to visualize the sorting algorithm.
 
-## Author
-- lorem ipsum
-- lorem ipsum
-- lorem ipsum
-
 # Acknowledgments
 This program was heavily inspired by 
 
