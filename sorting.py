@@ -95,15 +95,33 @@ class SortVisualizer:
             self.draw_array(self.array)
             self.root.update()
             self.root.after(self.delay_time)
+    
+    
+    def final_sort(self) -> None:
+        '''
+        This is just for the aesthetic of the program. It just looks fun to watch.
+        '''
+        for i in range(len(self.array)):
+            self.pivot_element = i
+            self.draw_array(self.array)
+            self.root.update()
+            self.root.after(self.delay_time)
+        self.pivot_element = None
+        self.draw_array(self.array)
+        self.root.update()
+        self.root.after(self.delay_time)
 
     # Define the run_sorting method
     def run_sorting(self) -> None:
         if self.sort_algorithm.get() == "Bubble Sort":
             self.bubble_sort()
+            self.final_sort()
         elif self.sort_algorithm.get() == "Selection Sort":
             self.selection_sort()
+            self.final_sort()
         elif self.sort_algorithm.get() == "Insertion Sort":
             self.insertion_sort()
+            self.final_sort()
         self.sorting = False
     
     # Define the handle_sort_button method
