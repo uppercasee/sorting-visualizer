@@ -1,4 +1,5 @@
 # Sorting Visualizer
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/tk)
 
 This is a Sorting Visualizer program that displays a graphical representation of various sorting algorithms. It was implemented using Python's `tkinter` library for the GUI and allows the user to visualize: 
 - Bubble sort
