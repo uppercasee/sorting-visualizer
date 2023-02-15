@@ -95,8 +95,16 @@ class SortVisualizer:
             self.draw_array(self.array)
             self.root.update()
             self.root.after(self.delay_time)
-    
-    
+
+    def merge_sort(self) -> None:
+        pass
+
+    def quick_sort(self) -> None:
+        pass
+
+    def heap_sort(self) -> None:
+        pass
+
     def final_sort(self) -> None:
         '''
         This is just for the aesthetic of the program. It just looks fun to watch.
