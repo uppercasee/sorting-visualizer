@@ -46,7 +46,8 @@ class SortVisualizer:
                     self.draw_array(self.array)
                     self.root.update()
                     self.root.after(self.delay_time)
-                    self.array[j], self.array[j + 1] = self.array[j + 1], self.array[j]
+                    self.array[j], self.array[j +
+                                              1] = self.array[j + 1], self.array[j]
                     self.draw_array(self.array)
                     self.root.update()
                     self.root.after(self.delay_time)
@@ -156,7 +157,8 @@ class SortVisualizer:
             length=400,
         )
         self.slider.set(100)
-        self.slider.config(bg="#EAA222", fg="black", highlightbackground="black")
+        self.slider.config(bg="#EAA222", fg="black",
+                           highlightbackground="black")
         self.slider.grid(row=0, column=0)
 
         self.delay_slider = tk.Scale(
@@ -170,14 +172,16 @@ class SortVisualizer:
             length=200,
         )
         self.delay_slider.set(0.01)
-        self.delay_slider.config(bg="#EAA222", fg="black", highlightbackground="black")
+        self.delay_slider.config(
+            bg="#EAA222", fg="black", highlightbackground="black")
         self.delay_slider.grid(row=0, column=1)
 
         self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
         self.dropdown = tk.OptionMenu(
             self.root, self.sort_algorithm, *self.sort_options
         )
-        self.dropdown.config(bg="yellow", fg="black", highlightbackground="black")
+        self.dropdown.config(bg="yellow", fg="black",
+                             highlightbackground="black")
 
         self.dropdown.grid(row=0, column=2)
 
@@ -185,7 +189,8 @@ class SortVisualizer:
             self.root, text="Sort", command=self.handle_sort_button
         )
         # change the color of the button so that it looks more appealing
-        self.sort_button.config(bg="green", fg="white", highlightbackground="black")
+        self.sort_button.config(bg="green", fg="white",
+                                highlightbackground="black")
         self.sort_button.grid(row=0, column=3)
 
         self.draw_array(self.array)
