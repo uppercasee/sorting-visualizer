@@ -111,6 +111,7 @@ class SortVisualizer:
         """
         This is just for the aesthetic of the program. It just looks fun to watch.
         """
+        self.delay_time = 30
         for i in range(len(self.array)):
             self.pivot_element = i
             self.draw_array(self.array)
