@@ -114,11 +114,12 @@ class SortVisualizer:
             self.pivot_element = i
             self.draw_array(self.array)
             self.root.update()
-            self.root.after(self.delay_time)
+            self.root.after(10)
         self.pivot_element = None
         self.draw_array(self.array)
         self.root.update()
-        self.root.after(self.delay_time)
+        self.root.after(10)
+        self.sorting = True
 
     # Define the run_sorting method
     def run_sorting(self) -> None:
@@ -154,6 +155,7 @@ class SortVisualizer:
             command=self.handle_slider,
             length=400,
         )
+        self.slider.set(100)
         self.slider.grid(row=1, column=0)
 
         self.delay_slider = tk.Scale(
@@ -166,12 +168,14 @@ class SortVisualizer:
             command=self.handle_delay_slider,
             length=200,
         )
+        self.delay_slider.set(0.1)
         self.delay_slider.grid(row=1, column=1)
 
         self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
         self.dropdown = tk.OptionMenu(
             self.root, self.sort_algorithm, *self.sort_options
         )
+
         self.dropdown.grid(row=1, column=2)
 
         self.sort_button = tk.Button(
