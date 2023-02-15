@@ -114,11 +114,11 @@ class SortVisualizer:
             self.pivot_element = i
             self.draw_array(self.array)
             self.root.update()
-            self.root.after(10)
+            self.root.after(self.delay_time)
         self.pivot_element = None
         self.draw_array(self.array)
         self.root.update()
-        self.root.after(10)
+        self.root.after(self.delay_time)
         self.sorting = True
 
     # Define the run_sorting method
@@ -168,7 +168,7 @@ class SortVisualizer:
             command=self.handle_delay_slider,
             length=200,
         )
-        self.delay_slider.set(0.1)
+        self.delay_slider.set(0.01)
         self.delay_slider.grid(row=1, column=1)
 
         self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
