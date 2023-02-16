@@ -37,7 +37,7 @@ git clone https://github.com/uppercasee/sorting-visualizer.git
 
 1. Open the terminal and navigate to the directory where the program is saved.
 2. Run the program by typing:
-`python sorting_visualizer.py`
+`python main.py`
 3. A window will pop up displaying the program's user interface.
 4. Use the slider to choose the number of elements you want to sort.
 5. Use the delay slider to adjust the delay between each comparison.
