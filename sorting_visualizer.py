@@ -14,7 +14,7 @@ class SortVisualizer:
         self.current_element = None
         self.lowest_element = None
         self.sorted_element = None
-        self.delay_time = 100
+        self.delay_time = 50
         self.setup_gui()
         self.root.mainloop()
 
