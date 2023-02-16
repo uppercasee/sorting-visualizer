@@ -33,11 +33,11 @@ class SortVisualizer:
             y2 = 800
             self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue")
             if i == self.pivot_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00") 
-            if i == self.current_element: 
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000") 
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00")
+            if i == self.current_element:
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000")
             if i == self.lowest_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00") 
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00")
         self.root.update()
 
     def bubble_sort(self) -> None:
@@ -81,7 +81,7 @@ class SortVisualizer:
             self.draw_array(self.array)
             self.root.update()
             self.root.after(self.delay_time)
-        
+
     def insertion_sort(self) -> None:
         n = len(self.array)
         for i in range(1, n):
@@ -94,7 +94,8 @@ class SortVisualizer:
                 self.root.update()
                 self.root.after(self.delay_time)
                 if self.array[j] > self.array[j+1]:
-                    self.array[j], self.array[j+1] = self.array[j+1], self.array[j]
+                    self.array[j], self.array[j +
+                                              1] = self.array[j+1], self.array[j]
                 else:
                     break
             self.pivot_element = None
