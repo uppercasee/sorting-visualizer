@@ -20,7 +20,7 @@ class SortVisualizer:
 
     def generate_array(self, num_elements) -> list:
         array = []
-        for i in range(num_elements):
+        for _ in range(num_elements):
             array.append(random.randint(10, 790))
         return array
 
