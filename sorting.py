@@ -6,7 +6,7 @@ class SortVisualizer:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Sorting Visualizer")
-        self.num_elements = 50
+        self.num_elements = 25
         self.array = self.generate_array(self.num_elements)
         self.sort_algorithm = tk.StringVar(value="Bubble Sort")
         self.sorting = False
@@ -14,7 +14,7 @@ class SortVisualizer:
         self.current_element = None
         self.lowest_element = None
         self.sorted_element = None
-        self.delay_time = 10
+        self.delay_time = 100
         self.setup_gui()
         self.root.mainloop()
 
@@ -31,13 +31,13 @@ class SortVisualizer:
             y1 = 800 - array[i]
             x2 = (i + 1) * 1000 / (len(array) + 1)
             y2 = 800
-            self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue") # color = blue
+            self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue")
             if i == self.pivot_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00") # color = orange
-            if i == self.current_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000") # color = red
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00") 
+            if i == self.current_element: 
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000") 
             if i == self.lowest_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00") # color = green
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00") 
         self.root.update()
 
     def bubble_sort(self) -> None:
@@ -158,9 +158,9 @@ class SortVisualizer:
             orient=tk.HORIZONTAL,
             label="Number of elements",
             command=self.handle_slider,
-            length=400,
+            length=500,
         )
-        self.slider.set(100)
+        self.slider.set(self.num_elements)
         self.slider.config(bg="#EAA222", fg="black",
                            highlightbackground="black")
         self.slider.grid(row=0, column=0)
@@ -173,9 +173,9 @@ class SortVisualizer:
             orient=tk.HORIZONTAL,
             label="Delay (s)",
             command=self.handle_delay_slider,
-            length=200,
+            length=300,
         )
-        self.delay_slider.set(0.01)
+        self.delay_slider.set(self.delay_time / 1000)
         self.delay_slider.config(
             bg="#EAA222", fg="black", highlightbackground="black")
         self.delay_slider.grid(row=0, column=1)
