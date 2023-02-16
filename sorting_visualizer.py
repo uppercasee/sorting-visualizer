@@ -146,6 +146,11 @@ class SortVisualizer:
             self.final_sort()
         self.sorting = False
 
+        # enable slider and other button after sorting
+        self.slider.config(state=tk.NORMAL)
+        self.sort_button.config(state=tk.NORMAL)
+        self.dropdown.config(state=tk.NORMAL)
+
     def handle_sort_button(self) -> None:
         if not self.sorting:
             self.sorting = True
