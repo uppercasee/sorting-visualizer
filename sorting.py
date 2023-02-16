@@ -22,24 +22,24 @@ class SortVisualizer:
     def generate_array(self, num_elements) -> list:
         array = []
         for i in range(num_elements):
-            array.append(random.randint(10, 490))
+            array.append(random.randint(10, 790))
         return array
 
     # Define the draw_array method which changes in size as the number of elements changes
     def draw_array(self, array) -> None:
         self.canvas.delete("all")
         for i in range(len(array)):
-            x1 = i * 800 / (len(array) + 1)
-            y1 = 500 - array[i]
-            x2 = (i + 1) * 800 / (len(array) + 1)
-            y2 = 500
-            self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue")
+            x1 = i * 1000 / (len(array) + 1)
+            y1 = 800 - array[i]
+            x2 = (i + 1) * 1000 / (len(array) + 1)
+            y2 = 800
+            self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue") # color = blue
             if i == self.pivot_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="red")
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00") # color = orange
             if i == self.current_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="green")
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000") # color = red
             if i == self.lowest_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="yellow")
+                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00") # color = green
         self.root.update()
 
     # Define the bubble_sort method
@@ -154,7 +154,7 @@ class SortVisualizer:
 
     # Define the setup_gui method
     def setup_gui(self) -> None:
-        self.canvas = tk.Canvas(self.root, width=800, height=500, bg="white")
+        self.canvas = tk.Canvas(self.root, width=1000, height=800, bg="white")
         self.canvas.grid(row=1, column=0, columnspan=4)
 
         self.slider = tk.Scale(
@@ -200,7 +200,7 @@ class SortVisualizer:
             self.root, text="Sort", command=self.handle_sort_button
         )
         # change the color of the button so that it looks more appealing
-        self.sort_button.config(bg="green", fg="white",
+        self.sort_button.config(bg="#00FF00", fg="black",
                                 highlightbackground="black")
         self.sort_button.grid(row=0, column=3)
 
