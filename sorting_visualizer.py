@@ -25,18 +25,18 @@ class SortVisualizer:
 
     def draw_array(self, array) -> None:
         self.canvas.delete("all")
-        for i in range(len(array)):
-            x1 = i * 1000 / (len(array) + 1)
-            y1 = 800 - array[i]
-            x2 = (i + 1) * 1000 / (len(array) + 1)
-            y2 = 800
-            self.canvas.create_rectangle(x1, y1, x2, y2, fill="blue")
+        width = 1000 / (len(array) + 1)
+        for i, value in enumerate(array):
+            x1, y1 = i * width, 800 - value
+            x2, y2 = (i + 1) * width, 800
+            color = "blue"
             if i == self.pivot_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00")
-            if i == self.current_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF0000")
-            if i == self.lowest_element:
-                self.canvas.create_rectangle(x1, y1, x2, y2, fill="#FF8C00")
+                color = "#00FF00"
+            elif i == self.current_element:
+                color = "#FF0000"
+            elif i == self.lowest_element:
+                color = "#FF8C00"
+            self.canvas.create_rectangle(x1, y1, x2, y2, fill=color)
         self.root.update()
 
     def bubble_sort(self) -> None:
