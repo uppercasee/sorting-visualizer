@@ -18,14 +18,12 @@ class SortVisualizer:
         self.setup_gui()
         self.root.mainloop()
 
-    # Define the generate_array method
     def generate_array(self, num_elements) -> list:
         array = []
         for i in range(num_elements):
             array.append(random.randint(10, 790))
         return array
 
-    # Define the draw_array method which changes in size as the number of elements changes
     def draw_array(self, array) -> None:
         self.canvas.delete("all")
         for i in range(len(array)):
@@ -42,7 +40,6 @@ class SortVisualizer:
                 self.canvas.create_rectangle(x1, y1, x2, y2, fill="#00FF00") # color = green
         self.root.update()
 
-    # Define the bubble_sort method
     def bubble_sort(self) -> None:
         n = len(self.array)
         for i in range(n):
@@ -65,7 +62,6 @@ class SortVisualizer:
             self.root.update()
             self.root.after(self.delay_time)
 
-    # Define the selection_sort method
     def selection_sort(self) -> None:
         n = len(self.array)
         for i in range(n):
@@ -133,7 +129,6 @@ class SortVisualizer:
         self.root.after(self.delay_time)
         self.sorting = True
 
-    # Define the run_sorting method
     def run_sorting(self) -> None:
         sorting_algorithms = {
             "Bubble Sort": self.bubble_sort,
@@ -146,13 +141,11 @@ class SortVisualizer:
             self.final_sort()
         self.sorting = False
 
-    # Define the handle_sort_button method
     def handle_sort_button(self) -> None:
         if not self.sorting:
             self.sorting = True
             self.run_sorting()
 
-    # Define the setup_gui method
     def setup_gui(self) -> None:
         self.canvas = tk.Canvas(self.root, width=1000, height=800, bg="white")
         self.canvas.grid(row=1, column=0, columnspan=4)
@@ -199,20 +192,17 @@ class SortVisualizer:
         self.sort_button = tk.Button(
             self.root, text="Sort", command=self.handle_sort_button
         )
-        # change the color of the button so that it looks more appealing
         self.sort_button.config(bg="#00FF00", fg="black",
                                 highlightbackground="black")
         self.sort_button.grid(row=0, column=3)
 
         self.draw_array(self.array)
 
-    # Define the handle_slider method
     def handle_slider(self, value) -> None:
         self.num_elements = int(value)
         if self.num_elements != len(self.array):
             self.array = self.generate_array(self.num_elements)
             self.draw_array(self.array)
 
-    # Define the handle_delay_slider method
     def handle_delay_slider(self, value) -> None:
         self.delay_time = int(float(value) * 1000)
