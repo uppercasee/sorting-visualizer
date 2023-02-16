@@ -1,3 +1,5 @@
+# TODO: Add docstring comments to all functions and classes
+# TODO: Add methods merge_sort, quick_sort, heap_sort
 import tkinter as tk
 import random
 
@@ -131,6 +133,11 @@ class SortVisualizer:
         self.sorting = True
 
     def run_sorting(self) -> None:
+        # disable slider and other button while sorting
+        self.slider.config(state=tk.DISABLED)
+        self.sort_button.config(state=tk.DISABLED)
+        self.dropdown.config(state=tk.DISABLED)
+
         sorting_algorithms = {
             "Bubble Sort": self.bubble_sort,
             "Selection Sort": self.selection_sort,
