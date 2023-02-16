@@ -42,7 +42,10 @@ class SortVisualizer:
     def bubble_sort(self) -> None:
         n = len(self.array)
         for i in range(n):
+            # Keep track of whether any swaps were made during this pass
+            made_swap = False
             for j in range(n - i - 1):
+                # Swap elements if they are in the wrong order
                 if self.array[j] > self.array[j + 1]:
                     self.pivot_element = j
                     self.current_element = j + 1
@@ -51,6 +54,7 @@ class SortVisualizer:
                     self.root.after(self.delay_time)
                     self.array[j], self.array[j +
                                               1] = self.array[j + 1], self.array[j]
+                    made_swap = True
                     self.draw_array(self.array)
                     self.root.update()
                     self.root.after(self.delay_time)
@@ -60,6 +64,9 @@ class SortVisualizer:
             self.draw_array(self.array)
             self.root.update()
             self.root.after(self.delay_time)
+            # If no swaps were made during this pass, the array is sorted and we can exit early
+            if not made_swap:
+                break
 
     def selection_sort(self) -> None:
         n = len(self.array)
