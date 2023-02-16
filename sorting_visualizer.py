@@ -8,15 +8,18 @@ class SortVisualizer:
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("Sorting Visualizer")
+        self.width = 1000
+        self.height = 800
         self.num_elements = 25
-        self.array = self.generate_array(self.num_elements)
-        self.sort_algorithm = tk.StringVar(value="Bubble Sort")
         self.sorting = False
         self.pivot_element = None
         self.current_element = None
         self.lowest_element = None
         self.sorted_element = None
         self.delay_time = 50
+        self.array = self.generate_array(self.num_elements)
+        self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
+        self.sort_algorithm = tk.StringVar(value="Bubble Sort")
         self.setup_gui()
         self.root.mainloop()
 
@@ -25,10 +28,10 @@ class SortVisualizer:
 
     def draw_array(self, array) -> None:
         self.canvas.delete("all")
-        width = 1000 / (len(array) + 1)
+        width = self.width / (len(array) + 1)
         for i, value in enumerate(array):
-            x1, y1 = i * width, 800 - value
-            x2, y2 = (i + 1) * width, 800
+            x1, y1 = i * width, self.height - value
+            x2, y2 = (i + 1) * width, self.height
             color = "blue"
             if i == self.pivot_element:
                 color = "#00FF00"
@@ -165,7 +168,7 @@ class SortVisualizer:
             self.run_sorting()
 
     def setup_gui(self) -> None:
-        self.canvas = tk.Canvas(self.root, width=1000, height=800, bg="white")
+        self.canvas = tk.Canvas(self.root, width=self.width, height=self.height, bg="white")
         self.canvas.grid(row=1, column=0, columnspan=4)
 
         self.slider = tk.Scale(
@@ -198,7 +201,6 @@ class SortVisualizer:
             bg="#EAA222", fg="black", highlightbackground="black")
         self.delay_slider.grid(row=0, column=1)
 
-        self.sort_options = ["Bubble Sort", "Selection Sort", "Insertion Sort"]
         self.dropdown = tk.OptionMenu(
             self.root, self.sort_algorithm, *self.sort_options
         )
@@ -215,6 +217,69 @@ class SortVisualizer:
         self.sort_button.grid(row=0, column=3)
 
         self.draw_array(self.array)
+
+    # def setup_gui(self) -> None:
+    #     # Create canvas widget
+    #     self.canvas = tk.Canvas(self.root, width=self.width, height=self.height, bg="white")
+    #     self.canvas.grid(row=1, column=0, columnspan=4)
+
+    #     # Create frame for sliders and dropdown
+    #     settings_frame = tk.Frame(self.root)
+    #     settings_frame.grid(row=0, column=0, columnspan=3)
+
+    #     # Create element count slider
+    #     self.slider = tk.Scale(
+    #         settings_frame,
+    #         from_=3,
+    #         to=500,
+    #         resolution=1,
+    #         orient=tk.HORIZONTAL,
+    #         label="Number of elements",
+    #         command=self.handle_slider,
+    #         length=500,
+    #     )
+    #     self.slider.set(self.num_elements)
+    #     self.slider.config(bg="#EAA222", fg="black",
+    #                        highlightbackground="black")
+    #     self.slider.grid(row=0, column=0)
+
+    #     # Create delay slider
+    #     self.create_slider(
+    #         parent=settings_frame,
+    #         label="Delay (s)",
+    #         command=self.handle_delay_slider,
+    #         variable=self.delay_time,
+    #         from_=0,
+    #         to=2.5,
+    #         resolution=0.01,
+    #     )
+
+    #     # Create sort algorithm dropdown
+    #     self.sort_algorithm.set(self.sort_options[0])
+    #     self.dropdown = tk.OptionMenu(
+    #         settings_frame,
+    #         self.sort_algorithm,
+    #         *self.sort_options,
+    #         command=self.handle_dropdown,
+    #     )
+    #     self.dropdown.pack(side="left")
+
+    #     # Create sort button
+    #     self.sort_button = tk.Button(
+    #         self.root,
+    #         text="Sort",
+    #         command=self.handle_sort_button,
+    #         bg="#00FF00",
+    #         fg="black",
+    #         highlightbackground="black",
+    #     )
+    #     self.sort_button.grid(row=0, column=3)
+
+    #     # Draw initial array
+    #     self.draw_array(self.array)
+    
+    # def handle_dropdown(self, value) -> None:
+    #     self.sort_algorithm.set(value)
 
     def handle_slider(self, value) -> None:
         self.num_elements = int(value)
