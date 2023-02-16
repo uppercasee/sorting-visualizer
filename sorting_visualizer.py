@@ -71,16 +71,21 @@ class SortVisualizer:
     def selection_sort(self) -> None:
         n = len(self.array)
         for i in range(n):
-            self.pivot_element = i
-            self.lowest_element = i
+            self.pivot_element = self.lowest_element = i
+            min_index = i
             for j in range(i + 1, n):
                 self.current_element = j
                 self.draw_array(self.array)
                 self.root.update()
                 self.root.after(self.delay_time)
-                if self.array[j] < self.array[self.lowest_element]:
+                if self.array[j] < self.array[min_index]:
                     self.lowest_element = j
-            self.array[i], self.array[self.lowest_element] = self.array[self.lowest_element], self.array[i]
+                    self.draw_array(self.array)
+                    self.root.update()
+                    self.root.after(self.delay_time)
+                    min_index = j
+            if min_index != i:
+                self.array[i], self.array[min_index] = self.array[min_index], self.array[i]
             self.pivot_element = None
             self.lowest_element = None
             self.current_element = None
@@ -91,19 +96,15 @@ class SortVisualizer:
     def insertion_sort(self) -> None:
         n = len(self.array)
         for i in range(1, n):
-            self.pivot_element = i
-            self.current_element = i
-            for j in range(i-1, -1, -1):
-                self.current_element = j + 1
-                self.lowest_element = j
+            j = self.pivot_element = self.current_element = i
+            while j > 0 and self.array[j-1] > self.array[j]:
+                self.current_element = j
+                self.lowest_element = j - 1
                 self.draw_array(self.array)
                 self.root.update()
                 self.root.after(self.delay_time)
-                if self.array[j] > self.array[j+1]:
-                    self.array[j], self.array[j +
-                                              1] = self.array[j+1], self.array[j]
-                else:
-                    break
+                self.array[j-1], self.array[j] = self.array[j], self.array[j-1]
+                j -= 1
             self.pivot_element = None
             self.current_element = None
             self.lowest_element = None
