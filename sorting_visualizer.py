@@ -21,10 +21,7 @@ class SortVisualizer:
         self.root.mainloop()
 
     def generate_array(self, num_elements) -> list:
-        array = []
-        for _ in range(num_elements):
-            array.append(random.randint(10, 790))
-        return array
+        return [random.randint(10, 790) for _ in range(num_elements)]
 
     def draw_array(self, array) -> None:
         self.canvas.delete("all")
